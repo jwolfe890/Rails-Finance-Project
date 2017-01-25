@@ -1,0 +1,35 @@
+<br>
+<br>
+<br>
+
+<%= form_for(@budget) do |f| %>
+
+<%= f.label :name, "Date" %>
+<%= f.text_field :name %>
+
+<br>
+
+<%= f.fields_for :budget_items_attributes do |item_builder| %>
+
+<br>
+
+Rent<br>
+<%= item_builder.text_field :name %><br>
+Utilities<br>
+<%= item_builder.text_field :name2 %><br>
+Food<br>
+<%= item_builder.text_field :name3 %><br>
+Clothing<br>
+<%= item_builder.text_field :name4 %><br>
+Phone<br>
+<%= item_builder.text_field :name5 %><br>
+<br>
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
+<% end %>
+
+<br>
+<br>

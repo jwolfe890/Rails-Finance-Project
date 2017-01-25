@@ -1,0 +1,58 @@
+<br>
+<br>
+
+<%= form_for(@budget) do |f| %>
+
+<fieldset>
+
+<h3>Month for This Budget:</h3>
+<%= f.date_select(:date, :order => [:month, :year]) %><br>
+
+<br>
+
+</fieldset>
+
+<fieldset>
+<h3>What Is Your Total Budget This Month?</h3>
+$ <%= f.text_field :savings, placeholder: " Budget" %>
+<br>
+<br>
+
+</fieldset>
+
+<fieldset>
+<h3>Add What You Have Already or Plan on Spending:</h3>
+$ <%= f.text_field :rent, placeholder: " Rent" %>&nbsp;&nbsp;&nbsp;&nbsp;
+
+$ <%= f.text_field :utilities, placeholder: " Utilities" %>&nbsp;&nbsp;&nbsp;&nbsp;
+
+$ <%= f.text_field :food, placeholder: " Food" %>&nbsp;&nbsp;&nbsp;&nbsp;
+
+$ <%= f.text_field :clothes, placeholder: " Clothes" %>&nbsp;&nbsp;&nbsp;&nbsp;
+
+$ <%= f.text_field :phone, placeholder: " Phone" %>&nbsp;&nbsp;&nbsp;&nbsp;
+
+$ <%= f.text_field :fun, placeholder: " Fun" %>&nbsp;&nbsp;&nbsp;&nbsp;
+
+$ <%= f.text_field :random, placeholder: " Random" %><br>&nbsp;
+</fieldset>
+
+<fieldset>
+
+<h3>Add a Note for This Budget:</h3>
+<%= f.fields_for :note, @budget.build_note do |note| %>
+<%= note.text_field :description, placeholder: " Description", :rows => 10, class: 'form-control' %>
+<br>
+<br>
+
+</fieldset>
+
+<% end %>
+
+<br>
+
+<%= f.submit %>
+
+<% end %>
+
+
